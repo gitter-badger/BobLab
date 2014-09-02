@@ -45,7 +45,6 @@ public class TwoSum {
 				if (idx < i) {
 					ret[0] = idx + 1;
 					ret[1] = i + 1; // +1 for not zero-based
-
 				}
 			}
 		}
