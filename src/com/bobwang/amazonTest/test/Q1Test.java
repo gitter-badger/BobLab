@@ -1,9 +1,9 @@
-package com.amazon.bobwang.test;
+package com.bobwang.amazonTest.test;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.amazon.bobwang.Q1;
+import com.bobwang.amazonTest.Q1;
 
 public class Q1Test {
 

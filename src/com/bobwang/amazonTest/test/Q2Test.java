@@ -1,12 +1,12 @@
-package com.amazon.bobwang.test;
+package com.bobwang.amazonTest.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.amazon.bobwang.Q2;
-import com.amazon.bobwang.Q2_Quicksort;
+import com.bobwang.amazonTest.Q2;
+import com.bobwang.amazonTest.Q2_Quicksort;
 
 public class Q2Test {
 

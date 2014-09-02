@@ -1,4 +1,4 @@
-package com.amazon.bobwang;
+package com.bobwang.amazonTest;
 
 public class Q2_Knapsack extends Q2 {
 

@@ -1,4 +1,4 @@
-package com.amazon.bobwang;
+package com.bobwang.amazonTest;
 
 import java.util.logging.Logger;
 
