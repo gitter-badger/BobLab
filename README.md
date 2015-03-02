@@ -1,4 +1,3 @@
 BobLab
 ======
-This is read me.
-Welcome to bob lab.
+Personal code repo, just for some experimental code.
