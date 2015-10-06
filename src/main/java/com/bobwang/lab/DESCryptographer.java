@@ -1,4 +1,4 @@
-package com.wang.bob.lab;
+package com.bobwang.lab;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

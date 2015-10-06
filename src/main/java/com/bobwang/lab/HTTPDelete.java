@@ -1,4 +1,4 @@
-package com.wang.bob.lab;
+package com.bobwang.lab;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,4 +1,4 @@
-package com.wang.bob.lab;
+package com.bobwang.lab;
 
 public class BooleanTest {
 	public static void main(String[] args){
