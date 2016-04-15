@@ -9,6 +9,7 @@
 		<commons-collections.version>3.2.1</commons-collections.version>
 		<junit-version>4.8.2</junit-version>
 		<apache-version>4.5</apache-version>
+		<angel-util-version>Trunk-SNAPSHOT</angel-util-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +41,29 @@
 			<artifactId>httpmime</artifactId>
 			<version>${apache-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+        <dependency>
+            <groupId>com.angel</groupId>
+            <artifactId>angel-util</artifactId>
+            <version>${angel-util-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
 
 	</dependencies>
 </project>

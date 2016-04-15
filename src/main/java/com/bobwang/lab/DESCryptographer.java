@@ -1,11 +1,5 @@
 package com.bobwang.lab;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,6 +10,12 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Base64;
 import java.util.logging.Logger;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
 
 public class DESCryptographer {
 	// This is the DES algorith with CBC mode and PKCS5 padding mode
@@ -176,5 +176,6 @@ public class DESCryptographer {
 	public static void main(String[] args) {
 		DESCryptographer crypt = new DESCryptographer();
 		System.out.println(crypt.encrypt("Genesys123"));
+		System.out.println(crypt.decrypt("YnsksiNwb3fiQws/h4lrPA=="));
 	}
 }
