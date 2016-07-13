@@ -8,11 +8,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import com.mstr.Config;
 import com.mstr.Meta;
+import com.mstr.util.DateUtils;
 
 public class StringUtil {
 
@@ -27,16 +30,26 @@ public class StringUtil {
 	enum test{ONE, TWO};
 
 	public static void main(String[] args) {
+//		String longEmailList = "jcarrillo@westlakefinancial.com,WFS_Telecom@westlakefinancial.com,angel-ivr-issues@wfsalerts.pagerduty.com,jcarrillo@westlakefinancial.com,WFS_Telecom@westlakefinancial.com,angel-ivr-issues@wfsalerts.pagerduty.com,telecom_issues@wfsalerts.pagerduty.com,WFS_Sysadmins@westlakefinancial.com,WFS_Developers@westlakefinancial.com,mackenzie.rogers@genesys.com";
+//		int maxLength = 256;
+//		if(longEmailList.length()>maxLength){
+//			longEmailList = longEmailList.substring(0,maxLength);
+//			System.out.println(longEmailList);
+//			longEmailList = longEmailList.substring(0, longEmailList.lastIndexOf(","));
+//		}
+//		System.out.println(longEmailList);
+		
+//		System.out.println(DateUtils.getPrependedStringForFTPDelivery("EST", Meta.HOURLY));
 		
 //		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式，不显示毫秒
 //		Timestamp now = new Timestamp(System.currentTimeMillis());//获取系统当前时间
 //		String str = df.format(now);
 //		
 //		System.out.println(str);
-		
-		String forwardMapURL = "/DomainEditor?command=displayPages&domainCode=0a346a42-02-14f19159b47-ef82c5e8-c7a";
-		String dc = forwardMapURL.substring(forwardMapURL.indexOf(Meta.DOMAIN_CODE_TAG())+11, forwardMapURL.length());
-		System.out.println(dc);
+//		
+//		String forwardMapURL = "/DomainEditor?command=displayPages&domainCode=0a346a42-02-14f19159b47-ef82c5e8-c7a";
+//		String dc = forwardMapURL.substring(forwardMapURL.indexOf(Meta.DOMAIN_CODE_TAG())+11, forwardMapURL.length());
+//		System.out.println(dc);
 
 //		for (int i = 0; i < 1000; i++) {
 //			ACDVar var = new ACDVar();
@@ -66,7 +79,9 @@ public class StringUtil {
 //			}
 //		}
 		
-//		printI18NString("Your email address cannot be longer than 256 characters, in which local part shouldn't be longer than 64.");
+		printI18NString("com.angel.sitebuilder.controller.VersionEditorController.cannotPublishCreatingVersion = You cannot publish the version which is not created yet."
+				+ "com.angel.sitebuilder.controller.VersionEditorController.cannotDeleteCreatingVersion = You cannot delete the version which is not created yet."
+				+ "com.angel.sitebuilder.controller.VersionEditorController.cannotCreateTwoVersions = Please wait until previous version {0} is created.");
 //			String email = "ewangchong@gmail.com";
 //			int indexOfAt = email.indexOf('@');
 //			String local = email.substring(0, indexOfAt);

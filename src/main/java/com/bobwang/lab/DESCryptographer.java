@@ -176,6 +176,6 @@ public class DESCryptographer {
 	public static void main(String[] args) {
 		DESCryptographer crypt = new DESCryptographer();
 		System.out.println(crypt.encrypt("Genesys123"));
-		System.out.println(crypt.decrypt("YnsksiNwb3fiQws/h4lrPA=="));
+		System.out.println(crypt.decrypt("VL03AfUU5cxCPpMHywUNrQ=="));
 	}
 }
