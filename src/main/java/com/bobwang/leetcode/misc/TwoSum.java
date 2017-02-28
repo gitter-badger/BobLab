@@ -1,4 +1,4 @@
-package com.bobwang.leetcode;
+package com.bobwang.leetcode.misc;
 
 import java.util.*;
 

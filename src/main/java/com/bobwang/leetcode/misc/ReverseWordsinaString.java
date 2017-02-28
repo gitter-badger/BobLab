@@ -1,4 +1,4 @@
-package com.bobwang.leetcode;
+package com.bobwang.leetcode.misc;
 
 /**
  * Given an input string, reverse the string word by word.
