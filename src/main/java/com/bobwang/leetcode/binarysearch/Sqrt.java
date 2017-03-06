@@ -1,4 +1,4 @@
-package com.bobwang.leetcode.bisect;
+package com.bobwang.leetcode.binarysearch;
 
 /**
  * Created by cwang on 2/28/17.
