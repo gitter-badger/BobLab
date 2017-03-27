@@ -1,57 +1,13 @@
 package com.bobwang.lintcode.bfs;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by cwang on 3/26/17.
  */
 public class WordBreak {
-    public boolean wordBreak(String s, Set<String> dict) {
-        // write your code here
-        if (s == null || s.length() == 0) {
-            return true;
-        }
-
-        if (dict == null || dict.size() == 0) {
-            return false;
-        }
-
-        return helper(s, dict);
-    }
-
-    private boolean helper(String s, Set<String> dict) {
-        Queue<String> queue = new LinkedList<String>();
-        Map<String, String> mapping = new HashMap<String, String>();
-
-        for (String word : dict) {
-            if (s.startsWith(word)) {
-                queue.offer(word);
-                mapping.put(word, s.replaceAll(word, ""));
-            }
-        }
-
-        if (queue.isEmpty()) {
-            return false;
-        }
-
-        int i = 0;
-        while (!queue.isEmpty()) {
-            String word = queue.poll();
-            String leftString = mapping.get(word);
-            if (dict.contains(leftString) || leftString.length() == 0) {
-                return true;
-            }
-            for (String d : dict) {
-                if (leftString.startsWith(d)) {
-                    queue.offer(d);
-                    mapping.put(d, leftString.replaceAll(d, ""));
-                }
-                System.out.println(++i);
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
         WordBreak wb = new WordBreak();
         Set<String> dict = new HashSet<String>();
@@ -64,5 +20,31 @@ public class WordBreak {
 //
 //        sb.append("lintcode");
         System.out.println(wb.wordBreak(sb.toString(), dict));
+    }
+
+    public boolean wordBreak(String s, Set<String> dict) {
+        // write your code here
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+
+        int len = s.length();
+
+        if (dict == null || dict.size() == 0) {
+            return false;
+        }
+
+        boolean[] canBreak = new boolean[len + 1];
+        canBreak[0] = true;
+        for (int i = 1; i < len; i++) {
+            canBreak[i] = false;
+            for (int j = 0; j < i; j++) {
+                if (canBreak[j] && dict.contains(s.substring(j, i))) {
+                    canBreak[i] = true;
+                }
+                break;
+            }
+        }
+        return canBreak[len];
     }
 }
