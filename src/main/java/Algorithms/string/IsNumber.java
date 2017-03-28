@@ -5,7 +5,7 @@ public class IsNumber {
         System.out.println(isNumber("e"));
     }
     
-    public boolean isNumber1(String s) {
+    public static boolean isNumber1(String s) {
         if (s == null) {
             return false;
         }
@@ -56,7 +56,7 @@ public class IsNumber {
         return num;
     }
     
-    public boolean isNumber(String s) {
+    public static boolean isNumber(String s) {
         if (s == null) {
             return false;
         }
