@@ -60,12 +60,6 @@
 			<scope>provided</scope>
 		</dependency>
         <dependency>
-            <groupId>com.angel</groupId>
-            <artifactId>angel-util</artifactId>
-            <version>${angel-util-version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.8.4</version>

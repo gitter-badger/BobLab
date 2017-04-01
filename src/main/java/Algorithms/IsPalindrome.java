@@ -1,3 +1,4 @@
+package Algorithms;
 
 public class IsPalindrome {
 	public static void main(String[] strs) {

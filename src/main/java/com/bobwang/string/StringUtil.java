@@ -1,6 +1,5 @@
 package com.bobwang.string;
 
-import com.mstr.Meta;
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -171,21 +170,21 @@ public class StringUtil {
                     continue;
                 }
                 if (iskey) {
-                    if (Meta.ACD_VARIABLE_META_DATA().equals(str) && StringUtils.isBlank(listToFormat.get(i + 1))) {
-                        System.out.println("GWS returns \"metaData\" :null");
-                        if ("}".equals(listToFormat.get(i + 2).trim())) {
-                            System.out.println("flag");
-                            sb.deleteCharAt(sb.lastIndexOf(","));
-                        }
-                        continue;
-                    }
-                    sb.append("\"");
-                    sb.append(str);
-                    sb.append("\":");
-                    if (Meta.ACD_VARIABLE_META_DATA().equals(str)) {
-                        inMetadata = true;
-                        continue;
-                    }
+//                    if (Meta.ACD_VARIABLE_META_DATA().equals(str) && StringUtils.isBlank(listToFormat.get(i + 1))) {
+//                        System.out.println("GWS returns \"metaData\" :null");
+//                        if ("}".equals(listToFormat.get(i + 2).trim())) {
+//                            System.out.println("flag");
+//                            sb.deleteCharAt(sb.lastIndexOf(","));
+//                        }
+//                        continue;
+//                    }
+//                    sb.append("\"");
+//                    sb.append(str);
+//                    sb.append("\":");
+//                    if (Meta.ACD_VARIABLE_META_DATA().equals(str)) {
+//                        inMetadata = true;
+//                        continue;
+//                    }
                     iskey = !iskey;
                     continue;
                 } else {

@@ -25,7 +25,6 @@ import com.bobwang.json.SubmitResponse;
 import com.bobwang.json.Utterance;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mstr.ValidationException;
 
 public class GoogleSpeechDemo {
 	/**
@@ -83,7 +82,7 @@ public class GoogleSpeechDemo {
 
 	}
 
-	public static String transcribe(String postUrl, Map<String, String> params, String inputFile) throws ParseException, IOException, ValidationException {
+	public static String transcribe(String postUrl, Map<String, String> params, String inputFile) throws ParseException, IOException {
 		HttpClient httpclient = new DefaultHttpClient();
 		httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
 
