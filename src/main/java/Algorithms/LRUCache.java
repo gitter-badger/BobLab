@@ -1,166 +1,97 @@
-package Algorithms;
-
 import java.util.HashMap;
 
-public class LRUCache {
-    public class Node {
-        Node next;
-        Node pre;
-        
-        int key;
-        int value;
-        
-        public Node(int key, int value) {
-            super();
-            this.next = null;
-            this.pre = null;
-            this.key = key;
-            this.value = value;
-        }
-    }
-    
-    int size;
-    
-    Node head;
-    Node tail;
-    
-    HashMap<Integer, Node> map;
-    
-    public static void main(String[] strs) {
-        LRUCache cache = new LRUCache(2);
-        cache.add(1, 2);
-        
-        System.out.println("Begine the test");
-        
-        Integer node1 = cache.get(1);
-        if (node1 == null) {
-            System.out.println("null");
-        } else {
-            System.out.println(node1);
-        }
-        
-        cache.add(1, 3);
-        node1 = cache.get(1);
-        if (node1 == null) {
-            System.out.println("null");
-        } else {
-            System.out.println(node1);
-        }
-        
-        cache.add(2, 23);
-        node1 = cache.get(2);
-        if (node1 == null) {
-            System.out.println("null");
-        } else {
-            System.out.println(node1);
-        }
-        
-        cache.add(4, 4);
-        node1 = cache.get(4);
-        if (node1 == null) {
-            System.out.println("null");
-        } else {
-            System.out.println(node1);
-        }
-        
-        //cache.add(4, 23);
-        
-        node1 = cache.get(2);
-        if (node1 == null) {
-            System.out.println("null");
-        } else {
-            System.out.println(node1);
-        }
-        
-        
-    }
 
-    public LRUCache(int size) {
-        super();
-        this.size = size;
-        this.head = new Node(-1, -1);
-        this.tail = new Node(-1, -1);
-        
-        // connect the tail and head;
-        this.head.next = this.tail;
-        this.tail.pre = this.head;
-        
-        this.map = new HashMap<Integer, Node>();
-    }
+public class LRUCache {
+	public static void main(String[] strs) {
+		LRUCache cache = new LRUCache(1);
+		
+		cache.set(2, 1);
+		cache.get(2);
+		cache.set(3, 2);
+		cache.get(2);
+	
+	}
+	
+    HashMap<Integer, ListNode> map;
+    int capacity;
     
-    // Delete.
-    public void deleteNode(int key) {
-        if (map.containsKey(key)) {
-            removeNode(key);
-            
-            // Also remove from the map.
-            map.remove(key);
+    ListNode head;
+    ListNode tail;
+    
+    public class ListNode {
+        int key;
+        int val;
+        ListNode pre;
+        ListNode next;
+        
+        public ListNode (int key, int val) {
+            this.key = key;
+            this.val = val;
+            this.pre = null;
+            this.next = null;
         }
     }
     
-    public void removeNode(int key) {
-        if (map.containsKey(key)) {
-            // remove the node.
-            Node node = map.get(key);
-            
-            // remove the node from the list;
-            node.pre.next = node.next;
-            node.next.pre = node.pre;
-            
-            // remove the node from the map.
-        }
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        map = new HashMap<Integer, ListNode>();
+        
+        head = new ListNode(-1, -1);
+        tail = new ListNode(-1, -1);
+        
+        head.next = tail;
+        tail.pre = head;
     }
     
-    public void addNodeToTail(Node node) {
-        // connect the node.
+    public void moveToTail(ListNode node) {
+        // connect the node into the list.
         node.pre = tail.pre;
         node.next = tail;
         
-        // connect the exit ones to the node.
         tail.pre.next = node;
         tail.pre = node;
     }
     
-    public void add(int key, int value) {
-        Node node = null;
-        if (map.containsKey(key)) {
-            node = map.get(key);
-            
-            // refresh the node value.
-            node.value = value;
-            removeNode(key);
+    public void removeNode(ListNode node) {
+        node.pre.next = node.next;
+        node.next.pre = node.pre;
+    }
+    
+    public int get(int key) {
+        if (map.get(key) == null) {
+            return -1;
         } else {
-            node = new Node(key, value);
-            map.put(key, node);
-        }
-        
-        //System.out.println("the size is : " + map.size());
-        
-        addNodeToTail(node);
-        
-        if (map.size() > size && size >= 1) {
-            int keyRemove = head.next.key;
+            // move the node to the tail.
+            ListNode node = map.get(key);
+            removeNode(node);
+            moveToTail(node);
             
-            //System.out.println("the keyRemove is : " + keyRemove);
-            
-            head.next = head.next.next;
-            head.next.pre = head;
-            
-            map.remove(keyRemove);
+            return node.val;
         }
     }
     
-    public Integer get(int key) {
-        Node node = null;
-        if (map.containsKey(key)) {
-            node = map.get(key);
-            removeNode(key);
+    public void set(int key, int value) {
+        ListNode node = map.get(key);
+        if (node == null) {
+            node = new ListNode(key, value);
             
-            addNodeToTail(node);
-            
-            return node.value;
+            // but 2: forget to add the node into the map.
+            map.put(key, node);
         } else {
-            return null;
+            // set the value.
+            node.val = value;
+            
+            removeNode(node);
+        }
+        
+        moveToTail(node);
+        
+        // the map is full, remove the head node.
+        // bug 1: use map.size() instead of map.size.
+        if (map.size() > capacity) {
+            map.remove(head.next.key);
+            
+            removeNode(head.next);
         }
     }
 }
